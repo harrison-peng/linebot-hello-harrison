@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 import pymongo
 
 def connect():
@@ -27,4 +29,8 @@ def insert(req, res):
 
 def get(req):
     collection = connect()
-    return collection.find_one({'request': req})['response']
+    res = collection.find_one({'request': req})
+    if res is None:
+        return None
+    else:
+        return res['response']

@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 import os
 import teachMode as teach
 from flask import Flask, request, abort
@@ -55,7 +57,7 @@ def handle_message(event):
             res = teach.learn_new_word(message)
         else:
             result = teach.responding(message)
-            if result == None:
+            if result is None:
                 res = '還沒學會哦！'
             else:
                 res = result

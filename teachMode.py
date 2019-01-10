@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 import db as db
 
 def learn_new_word(word):
@@ -9,3 +11,5 @@ def learn_new_word(word):
 
 def responding(word):
     return db.get(word)
+
+print(responding('qqqq'))
