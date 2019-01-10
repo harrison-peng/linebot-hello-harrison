@@ -50,7 +50,7 @@ def handle_message(event):
         res_message = TextSendMessage(text=res)
         line_bot_api.reply_message(event.reply_token, res_message)
     except Exception as e:
-        res_message = TextSendMessage(text=e)
+        res_message = TextSendMessage(text=str(e))
         line_bot_api.reply_message(event.reply_token, res_message)
 
 if __name__ == "__main__":
