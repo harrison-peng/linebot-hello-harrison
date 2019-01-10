@@ -92,7 +92,18 @@ def handle_message(event):
                         res_message = TextSendMessage(text=res)
                         line_bot_api.reply_message(event.reply_token, res_message)
                 elif message == '結束遊戲':
-                    pass
+                    game.finish_game(user_id)
+                    content = '遊戲結束囉~'
+                    res_message = TextSendMessage(text=content)
+                    line_bot_api.reply_message(event.reply_token, res_message)
+                elif message == '我投降':
+                    content = game.give_up_game(user_id)
+                    res_message = TextSendMessage(text=content)
+                    line_bot_api.reply_message(event.reply_token, res_message)
+                else:
+                    content = '還在遊戲中哦!如果想結束遊戲請輸入「結束遊戲」~'
+                    res_message = TextSendMessage(text=content)
+                    line_bot_api.reply_message(event.reply_token, res_message)
             elif message.startswith('@學習 '):
                 res = teach.learn_new_word(message)
             else:

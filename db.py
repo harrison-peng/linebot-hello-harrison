@@ -86,3 +86,19 @@ def get_game_answer(user_id):
     }
     collection.update_one(query, new_value)
     return user_data['answer']
+
+def get_game_count(user_id):
+    collection = connect('game')
+    return collection.find_one({'user_id': user_id})['count']
+
+def set_game_play_false(user_id):
+    collection = connect('game')
+
+    query = {'_id': user_id}
+    new_value = {
+        '$set': {
+            'play': False,
+            'answer': ''
+        }
+    }
+    collection.update_one(query, new_value)
