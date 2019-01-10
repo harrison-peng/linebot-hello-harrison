@@ -106,7 +106,7 @@ def handle_message(event):
                         CarouselColumn(
                             thumbnail_image_url='https://i.imgur.com/wo3gJPi.jpg',
                             title='【momofit Website】',
-                            text='個人健身記錄網站!\naccount:howard\npassword:9527',
+                            text='個人健身記錄網站.\naccount:howard\npassword:9527',
                             actions=[
                                 URIAction(
                                     label='momofit',
