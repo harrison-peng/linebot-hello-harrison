@@ -99,7 +99,8 @@ def set_game_play_false(user_id):
     new_value = {
         '$set': {
             'play': False,
-            'answer': ''
+            'answer': '',
+            'cpunt': 0
         }
     }
     collection.update_one(query, new_value)

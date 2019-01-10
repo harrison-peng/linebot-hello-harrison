@@ -48,8 +48,8 @@ def handle_message(event):
         if message.find('＄') == 0:
             message = message.replace('＄', '$')
 
-        if message.startswith('$'):
-            user_is_playing_game = game.check_is_playing_game(user_id)
+        # check if user is play game
+        user_is_playing_game = game.check_is_playing_game(user_id)
 
         if message == '教我說話':
             content = '嗨嗨～只要在照著 [@學習 指令 回覆] 這個格式輸入就可以讓我學習說話哦!還不趕快試試嗎？'
