@@ -84,7 +84,7 @@ def handle_message(event):
                         CarouselColumn(
                             thumbnail_image_url='https://www.smartone.com/services_and_apps/tchinese/Spotify.png',
                             title='【Spotify Demo】',
-                            text='',
+                            text='Spotify Demo',
                             actions=[
                                 URIAction(
                                     label='Spotify Demo',
@@ -95,7 +95,7 @@ def handle_message(event):
                         CarouselColumn(
                             thumbnail_image_url='https://newsound.herokuapp.com/static/media/newsound-logo.88a4c9cb.png',
                             title='【New Sound Website】',
-                            text='',
+                            text='New Sound Website',
                             actions=[
                                 URIAction(
                                     label='New Sound',
@@ -106,7 +106,7 @@ def handle_message(event):
                         CarouselColumn(
                             thumbnail_image_url='https://momofit.herokuapp.com/momofit/static/img/logo.png',
                             title='【momofit Website】',
-                            text='',
+                            text='momofit Website',
                             actions=[
                                 URIAction(
                                     label='momofit',
