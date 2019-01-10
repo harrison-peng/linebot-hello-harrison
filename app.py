@@ -46,18 +46,16 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token, res_message)
         elif message == '猜數字遊戲':
             confirm_template_message = TemplateSendMessage(
-                alt_text='Confirm template',
-                template=ConfirmTemplate(
-                    text='Are you sure?',
+                alt_text='Buttons template',
+                template=ButtonsTemplate(
+                    thumbnail_image_url='https://example.com/image.jpg',
+                    title='【猜數字】'
+                    text='猜一個四位不重複的數字，A表示數字對位置對，B表示數字錯位置錯，透過已知的線索，來看看你能多快猜到數字吧！',
                     actions=[
                         PostbackAction(
-                            label='postback',
-                            text='postback text',
+                            label='我要玩',
+                            text='#我要玩猜數字',
                             data='action=buy&itemid=1'
-                        ),
-                        MessageAction(
-                            label='message',
-                            text='message text'
                         )
                     ]
                 )
