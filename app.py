@@ -55,7 +55,7 @@ def handle_message(event):
             res = teach.learn_new_word(message)
         else:
             result = teach.responding(message)
-            if result is None:
+            if result == None:
                 res = '還沒學會哦！'
             else:
                 res = result
