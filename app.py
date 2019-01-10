@@ -74,7 +74,7 @@ def handle_message(event):
         elif message == '#我要玩猜數字':
             game.start_game(user_id)
             content = '遊戲開始！請輸入「$」加上4位數字，如果想結束遊戲請輸入「結束遊戲」，如果像看答案請輸入「我投降」，加油啦~'
-            es_message = TextSendMessage(text=content)
+            res_message = TextSendMessage(text=content)
             line_bot_api.reply_message(event.reply_token, res_message)
         elif message == '觀看作品':
             pass
