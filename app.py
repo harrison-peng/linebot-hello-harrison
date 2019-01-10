@@ -84,7 +84,7 @@ def handle_message(event):
                         CarouselColumn(
                             thumbnail_image_url='https://www.smartone.com/services_and_apps/tchinese/Spotify.png',
                             title='【Spotify Demo】',
-                            text='Spotify Demo',
+                            text='The Demo website using spotify api.',
                             actions=[
                                 URIAction(
                                     label='Spotify Demo',
@@ -95,7 +95,7 @@ def handle_message(event):
                         CarouselColumn(
                             thumbnail_image_url='https://i.imgur.com/CYcSKeP.jpg',
                             title='【New Sound Website】',
-                            text='New Sound Website',
+                            text='New Sound 公司官方網站.',
                             actions=[
                                 URIAction(
                                     label='New Sound',
@@ -106,7 +106,7 @@ def handle_message(event):
                         CarouselColumn(
                             thumbnail_image_url='https://i.imgur.com/wo3gJPi.jpg',
                             title='【momofit Website】',
-                            text='momofit Website',
+                            text='個人健身記錄網站!\naccount:howard\npassword:9527',
                             actions=[
                                 URIAction(
                                     label='momofit',
