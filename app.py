@@ -57,9 +57,8 @@ def handle_message(event):
                     res = '還沒學會哦！'
                 else:
                     res = result
-
-                res_message = TextSendMessage(text=res)
-                line_bot_api.reply_message(event.reply_token, res_message)
+            res_message = TextSendMessage(text=res)
+            line_bot_api.reply_message(event.reply_token, res_message)
     except Exception as e:
         res_message = TextSendMessage(text=str(e))
         line_bot_api.reply_message(event.reply_token, res_message)

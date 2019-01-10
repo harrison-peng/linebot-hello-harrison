@@ -7,9 +7,7 @@ def learn_new_word(word):
     req = word_list[1]
     res = word_list[2]
     db.insert(req, res)
-    return '學會了'
+    return '學會「{0}」囉~'.format(req)
 
 def responding(word):
     return db.get(word)
-
-print(responding('qqqq'))
