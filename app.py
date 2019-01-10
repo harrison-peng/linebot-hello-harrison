@@ -117,6 +117,7 @@ def handle_message(event):
                     ]
                 )
             )
+            line_bot_api.reply_message(event.reply_token, carousel_template_message)
         else:
             if user_is_playing_game:
                 if message.startswith('$'):
