@@ -89,7 +89,7 @@ def handle_message(event):
                         line_bot_api.reply_message(event.reply_token, res_message)
                     else:
                         res = game.check_number(user_id, number_list[1], number_list[2], number_list[3], number_list[4])
-                        es_message = TextSendMessage(text=res)
+                        res_message = TextSendMessage(text=res)
                         line_bot_api.reply_message(event.reply_token, res_message)
                 elif message == '結束遊戲':
                     pass
