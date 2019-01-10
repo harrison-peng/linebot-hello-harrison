@@ -10,6 +10,7 @@ def check_number(user_id, first, second, third, fourth):
     count_A = 0
     count_B = 0
     answer_list = list(db.get_game_answer(user_id))
+    db.add_game_count(user_id)
 
     if first == answer_list[0]:
         count_A += 1
@@ -34,7 +35,7 @@ def check_number(user_id, first, second, third, fourth):
         if count < 10:
             return '恭喜答對囉!!!! 總共只花了%d次呢！真厲害:D' % count
         elif count >= 10 and count < 20:
-            return '恭喜答對囉!!!! 總共花了%d次呢！再加油哦:)' % count
+            return '恭喜答對囉!!!! 總共花了%d次呢！還不錯~下次再加油哦:)' % count
         else:
             return '恭喜答對囉!!!! 總共花了%d次，可以再多努力哦><' % count
     else:

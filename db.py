@@ -75,17 +75,18 @@ def user_play_game(user_id):
 
 def get_game_answer(user_id):
     collection = connect('game')
+    return collection.find_one({'user_id': user_id})['answer']
 
-    user_data = collection.find_one({'user_id': user_id})
-    
-    query = {'_id': user_id}
+def add_game_count(user_id):
+    collection = connect('game')
+
+    query = {'user_id': user_id}
     new_value = {
         '$inc': {
             'count': 1
         }
     }
     collection.update_one(query, new_value)
-    return user_data['answer']
 
 def get_game_count(user_id):
     collection = connect('game')
@@ -94,7 +95,7 @@ def get_game_count(user_id):
 def set_game_play_false(user_id):
     collection = connect('game')
 
-    query = {'_id': user_id}
+    query = {'user_id': user_id}
     new_value = {
         '$set': {
             'play': False,
