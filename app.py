@@ -45,7 +45,24 @@ def handle_message(event):
             res_message = TextSendMessage(text=content)
             line_bot_api.reply_message(event.reply_token, res_message)
         elif message == '猜數字遊戲':
-            pass
+            confirm_template_message = TemplateSendMessage(
+                alt_text='Confirm template',
+                template=ConfirmTemplate(
+                    text='Are you sure?',
+                    actions=[
+                        PostbackAction(
+                            label='postback',
+                            text='postback text',
+                            data='action=buy&itemid=1'
+                        ),
+                        MessageAction(
+                            label='message',
+                            text='message text'
+                        )
+                    ]
+                )
+            )
+            line_bot_api.reply_message(event.reply_token, confirm_template_message)
         elif message == '觀看作品':
             pass
         else:
