@@ -52,13 +52,13 @@ def handle_message(event):
         #     pass
         # else:
         if message.startswith('@學習 '):
-                res = teach.learn_new_word(message)
+            res = teach.learn_new_word(message)
+        else:
+            result = teach.responding(message)
+            if result is None:
+                res = '還沒學會哦！'
             else:
-                result = teach.responding(message)
-                if result is None:
-                    res = '還沒學會哦！'
-                else:
-                    res = result
+                res = result
 
             res_message = TextSendMessage(text=res)
             line_bot_api.reply_message(event.reply_token, res_message)
