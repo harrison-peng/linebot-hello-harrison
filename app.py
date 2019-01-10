@@ -49,7 +49,7 @@ def handle_message(event):
 
         res_message = TextSendMessage(text=res)
         line_bot_api.reply_message(event.reply_token, res_message)
-    except Exception e:
+    except Exception as e:
         res_message = TextSendMessage(text=e)
         line_bot_api.reply_message(event.reply_token, res_message)
 
