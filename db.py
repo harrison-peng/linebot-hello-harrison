@@ -27,4 +27,4 @@ def insert(req, res):
 
 def get(req):
     collection = connect()
-    return collection.find_one({'request': req})
+    return collection.find_one({'request': req})['response']
