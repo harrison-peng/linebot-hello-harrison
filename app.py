@@ -37,17 +37,21 @@ def callback():
 def handle_message(event):
     message = event.message.text
 
-    if message.startwith('@學習 '):
-        res = teach.learn_new_word(message)
-    else:
-        result = teach.responding(message)
-        if result is None:
-            res = '還沒學會哦！'
+    try:
+        if message.startwith('@學習 '):
+            res = teach.learn_new_word(message)
         else:
-            res = result
+            result = teach.responding(message)
+            if result is None:
+                res = '還沒學會哦！'
+            else:
+                res = result
 
-    res_message = TextSendMessage(text=res)
-    line_bot_api.reply_message(event.reply_token, res_message)
+        res_message = TextSendMessage(text=res)
+        line_bot_api.reply_message(event.reply_token, res_message)
+    except:
+        res_message = TextSendMessage(text=message)
+        line_bot_api.reply_message(event.reply_token, res_message)
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
