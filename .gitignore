@@ -1,3 +1,4 @@
 # environment
 venv
 .DS_Store
+.vscode
