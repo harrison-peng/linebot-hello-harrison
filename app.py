@@ -38,20 +38,20 @@ def handle_message(event):
     message = event.message.text
 
     try:
-        if message == '教我說話':
-            content = 
-            '''
-            嗨嗨～只要在照著 (@學習 指令 回覆) 這個格式輸入就可以讓我學習說話哦!
-            還不趕快試試嗎？
-            '''
-            res_message = TextSendMessage(text=content)
-            line_bot_api.reply_message(event.reply_token, res_message)
-        elif message == '猜數字遊戲':
-            pass
-        elif message == '觀看作品':
-            pass
-        else:
-            if message.startswith('@學習 '):
+        # if message == '教我說話':
+        #     content = 
+        #     '''
+        #     嗨嗨～只要在照著 (@學習 指令 回覆) 這個格式輸入就可以讓我學習說話哦!
+        #     還不趕快試試嗎？
+        #     '''
+        #     res_message = TextSendMessage(text=content)
+        #     line_bot_api.reply_message(event.reply_token, res_message)
+        # elif message == '猜數字遊戲':
+        #     pass
+        # elif message == '觀看作品':
+        #     pass
+        # else:
+        if message.startswith('@學習 '):
                 res = teach.learn_new_word(message)
             else:
                 result = teach.responding(message)
