@@ -2,6 +2,7 @@
 
 import pymongo
 import random
+import os
 
 def connect(col_name):
     myclient = pymongo.MongoClient("mongodb://%s:%s@ds253324.mlab.com:53324/linebot-hello-harrison" % (os.environ['DB_USER'], os.environ['DB_PASSWORD']))
