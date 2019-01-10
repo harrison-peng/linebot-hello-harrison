@@ -41,11 +41,7 @@ def handle_message(event):
 
     try:
         if message == '教我說話':
-            content = 
-            '''
-            嗨嗨～只要在照著 (@學習 指令 回覆) 這個格式輸入就可以讓我學習說話哦!
-            還不趕快試試嗎？
-            '''
+            content = '嗨嗨～只要在照著 (@學習 指令 回覆) 這個格式輸入就可以讓我學習說話哦!還不趕快試試嗎？'
             res_message = TextSendMessage(text=content)
             line_bot_api.reply_message(event.reply_token, res_message)
         elif message == '猜數字遊戲':
