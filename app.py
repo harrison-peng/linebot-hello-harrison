@@ -77,62 +77,47 @@ def handle_message(event):
             res_message = TextSendMessage(text=content)
             line_bot_api.reply_message(event.reply_token, res_message)
         elif message == '觀看作品':
-            # carousel_template_message = TemplateSendMessage(
-            #     alt_text='Carousel template',
-            #     template=CarouselTemplate(
-            #         columns=[
-            #             CarouselColumn(
-            #                 thumbnail_image_url='https://www.smartone.com/services_and_apps/tchinese/Spotify.png',
-            #                 title='【Spotify Demo】',
-            #                 text='',
-            #                 actions=[
-            #                     URIAction(
-            #                         label='Spotify Demo',
-            #                         uri='https://spotify-demo-by-harrison.herokuapp.com/index'
-            #                     )
-            #                 ]
-            #             ),
-            #             CarouselColumn(
-            #                 thumbnail_image_url='https://newsound.herokuapp.com/static/media/newsound-logo.88a4c9cb.png',
-            #                 title='【New Sound Website】',
-            #                 text='',
-            #                 actions=[
-            #                     URIAction(
-            #                         label='New Sound',
-            #                         uri='https://newsound.herokuapp.com/'
-            #                     )
-            #                 ]
-            #             ),
-            #             CarouselColumn(
-            #                 thumbnail_image_url='https://momofit.herokuapp.com/momofit/static/img/logo.png',
-            #                 title='【momofit Website】',
-            #                 text='',
-            #                 actions=[
-            #                     URIAction(
-            #                         label='momofit',
-            #                         uri='https://momofit.herokuapp.com/'
-            #                     )
-            #                 ]
-            #             )
-            #         ]
-            #     )
-            # )
-            # line_bot_api.reply_message(event.reply_token, carousel_template_message)
-             confirm_template_message = TemplateSendMessage(
-                alt_text='Buttons template',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://compass-ssl.xbox.com/assets/dc/48/dc486960-701e-421b-b145-70d04f3b85be.jpg?n=Game-Hub_Content-Placement-0_New-Releases-No-Copy_740x417_02.jpg',
-                    title='【猜數字】',
-                    text='猜一個四位不重複的數字，A表示數字對位置對，B表示數字錯位置錯，透過已知的線索，來看看你能多快猜到數字吧！',
-                    actions=[
-                        MessageTemplateAction(
-                            label='我要玩',
-                            text='#我要玩猜數字'
+            works_message = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.smartone.com/services_and_apps/tchinese/Spotify.png',
+                            title='【Spotify Demo】',
+                            text='',
+                            actions=[
+                                URIAction(
+                                    label='Spotify Demo',
+                                    uri='https://spotify-demo-by-harrison.herokuapp.com/index'
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://newsound.herokuapp.com/static/media/newsound-logo.88a4c9cb.png',
+                            title='【New Sound Website】',
+                            text='',
+                            actions=[
+                                URIAction(
+                                    label='New Sound',
+                                    uri='https://newsound.herokuapp.com/'
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://momofit.herokuapp.com/momofit/static/img/logo.png',
+                            title='【momofit Website】',
+                            text='',
+                            actions=[
+                                URIAction(
+                                    label='momofit',
+                                    uri='https://momofit.herokuapp.com/'
+                                )
+                            ]
                         )
                     ]
                 )
             )
-            line_bot_api.reply_message(event.reply_token, confirm_template_message)
+            line_bot_api.reply_message(event.reply_token, works_message)
         else:
             if user_is_playing_game:
                 if message.startswith('$'):
