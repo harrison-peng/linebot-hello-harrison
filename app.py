@@ -52,7 +52,7 @@ def handle_message(event):
         user_is_playing_game = game.check_is_playing_game(user_id)
 
         if message == '教我說話':
-            content = '嗨嗨～只要在照著 [@學習 指令 回覆] 這個格式輸入就可以讓我學習說話哦!還不趕快試試嗎？'
+            content = '嗨嗨～只要在照著 【@學習 指令 回覆】(ex: @學習 你好 哈囉~) 這個格式輸入就可以讓我學習說話哦!還不趕快試試嗎？'
             res_message = TextSendMessage(text=content)
             line_bot_api.reply_message(event.reply_token, res_message)
         elif message == '猜數字遊戲':
@@ -77,7 +77,46 @@ def handle_message(event):
             res_message = TextSendMessage(text=content)
             line_bot_api.reply_message(event.reply_token, res_message)
         elif message == '觀看作品':
-            pass
+            carousel_template_message = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.smartone.com/services_and_apps/tchinese/Spotify.png',
+                            title='【Spotify Demo】',
+                            text='',
+                            actions=[
+                                URIAction(
+                                    label='Spotify Demo',
+                                    uri='https://spotify-demo-by-harrison.herokuapp.com/index'
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://newsound.herokuapp.com/static/media/newsound-logo.88a4c9cb.png',
+                            title='【New Sound Website】',
+                            text='',
+                            actions=[
+                                URIAction(
+                                    label='New Sound',
+                                    uri='https://newsound.herokuapp.com/'
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://momofit.herokuapp.com/momofit/static/img/logo.png',
+                            title='【momofit Website】',
+                            text='',
+                            actions=[
+                                URIAction(
+                                    label='momofit',
+                                    uri='https://momofit.herokuapp.com/'
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
         else:
             if user_is_playing_game:
                 if message.startswith('$'):

@@ -4,7 +4,7 @@ import pymongo
 import random
 
 def connect(col_name):
-    myclient = pymongo.MongoClient("mongodb://harrison:linebot2019@ds253324.mlab.com:53324/linebot-hello-harrison")
+    myclient = pymongo.MongoClient("mongodb://%s:%s@ds253324.mlab.com:53324/linebot-hello-harrison" % (os.environ['DB_USER'], os.environ['DB_PASSWORD']))
     db = myclient['linebot-hello-harrison']
     collection = db[col_name]
     return collection
@@ -100,7 +100,7 @@ def set_game_play_false(user_id):
         '$set': {
             'play': False,
             'answer': '',
-            'cpunt': 0
+            'count': 0
         }
     }
     collection.update_one(query, new_value)
