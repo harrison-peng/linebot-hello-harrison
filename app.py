@@ -81,7 +81,7 @@ def handle_message(event):
         else:
             if user_is_playing_game:
                 if message.startswith('$'):
-                    number_list = message.split('')
+                    number_list = list(message)
 
                     if len(number_list) != 5 or len(set(number_list)) != 5:
                         content = '請輸入四位不同的數字哦！'

@@ -9,7 +9,7 @@ def check_is_playing_game(user_id):
 def check_number(user_id, first, second, third, fourth):
     count_A = 0
     count_B = 0
-    answer_list = db.get_game_answer(user_id).split('')
+    answer_list = list(db.get_game_answer(user_id))
 
     if first == answer_list[0]:
         count_A += 1
