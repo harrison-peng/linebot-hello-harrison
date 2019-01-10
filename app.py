@@ -47,7 +47,7 @@ def handle_message(event):
             res = result
 
     res_message = TextSendMessage(text=res)
-        line_bot_api.reply_message(event.reply_token, res_message)
+    line_bot_api.reply_message(event.reply_token, res_message)
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
