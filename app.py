@@ -38,7 +38,7 @@ def handle_message(event):
     message = event.message.text
 
     try:
-        if message.startwith('@學習 '):
+        if message.startswith('@學習 '):
             res = teach.learn_new_word(message)
         else:
             result = teach.responding(message)
