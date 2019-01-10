@@ -93,7 +93,7 @@ def handle_message(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://newsound.herokuapp.com/static/media/newsound-logo.88a4c9cb.png',
+                            thumbnail_image_url='https://i.imgur.com/CYcSKeP.jpg',
                             title='【New Sound Website】',
                             text='New Sound Website',
                             actions=[
@@ -104,7 +104,7 @@ def handle_message(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://momofit.herokuapp.com/momofit/static/img/logo.png',
+                            thumbnail_image_url='https://i.imgur.com/wo3gJPi.jpg',
                             title='【momofit Website】',
                             text='momofit Website',
                             actions=[
