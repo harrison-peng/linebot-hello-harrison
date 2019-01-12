@@ -4,13 +4,20 @@ from yelpapi import YelpAPI
 
 YELP_API_KEY = os.environ['YELP_API_KEY']
 
-# Defaults for our simple example.
-DEFAULT_TERM = 'restaurant'
-DEFAULT_LOCATION = 'No. 1, Section 4, Roosevelt Rd, Da’an District, Taipei City, Taiwan 10617'
-SEARCH_LIMIT = 5
+def find_near_restaurant(address):
+    TERM = 'restaurant'
+    SEARCH_LIMIT = 5
 
+    yelp_api = YelpAPI(YELP_API_KEY)
+    results = search_results = yelp_api.search_query(term=TERM, location=address, limit=5)['businesses']
 
-yelp_api = YelpAPI(YELP_API_KEY)
-result = search_results = yelp_api.search_query(term=DEFAULT_TERM, location=DEFAULT_LOCATION, limit=5)
-
-print(result['businesses'][0])
+    restaurant_list = list()
+    for result in results:
+        restaurant_item = {
+            'name': result['name'],
+            'image': result['image_url'],
+            'address': result['location']['address1'],
+            'url': result['url']
+        }
+        restaurant_list.append(restaurant_item)
+    return restaurant_list
