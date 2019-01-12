@@ -3,6 +3,7 @@
 import os
 import teachMode as teach
 import game as game
+import restaurant as restaurant
 from flask import Flask, request, abort
 
 from linebot import (
@@ -179,7 +180,7 @@ def handle_message(event):
 def handle_location_message(event):
     try:
         location = event.message.address
-        restaurant_list = restanrant.find_near_restaurant(location)
+        restaurant_list = restaurant.find_near_restaurant(location)
 
         restaurant_message = TemplateSendMessage(
             alt_text='Carousel template',
