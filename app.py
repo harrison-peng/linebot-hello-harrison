@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 import os
+import random
 import teachMode as teach
 import game as game
 import restaurant as restaurant
@@ -248,6 +249,27 @@ def handle_location_message(event):
     except Exception as e:
         res_message = TextSendMessage(text=str(e))
         line_bot_api.reply_message(event.reply_token, res_message)
+
+@handler.add(MessageEvent, message=StickerMessage)
+def handle_sticker_message(event):
+    package = random.sample([1, 2, 11537, 11538, 11539], k=1)[0]
+    if package == 1:
+        sticker = random.sample([2, 10, 114, 119, 106], k=1)[0]
+    elif package == 2:
+        sticker = random.sample([125, 132, 137, 410, 138, 427, 148, 34, 156, 164, 176, 511, 516, 513], k=1)[0]
+    elif package == 11537:
+        sticker = random.sample([52002735, 52002736, 52002752, 52002768, 52002743, 52002747, 52002745, 52002734], k=1)[0]
+    elif package == 11538:
+        sticker = random.sample([51626512, 51626507, 51626496, 51626513], k=1)[0]
+    elif package == 11539:
+        sticker = random.sample([52114112, 52114115, 52114116, 52114124, 52114125, 52114131, 52114136], k=1)[0]
+
+    line_bot_api.reply_message(
+        event.reply_token,
+        StickerSendMessage(
+            package_id=package,
+            sticker_id=sticker)
+    )
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
