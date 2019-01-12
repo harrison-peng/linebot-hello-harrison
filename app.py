@@ -188,7 +188,7 @@ def handle_location_message(event):
                 columns=[
                     CarouselColumn(
                         thumbnail_image_url=restaurant_list[0]['image'],
-                        title='【%s】' % restaurant_list[0]['name'],
+                        title=restaurant_list[0]['name'],
                         text='地址：%s' % restaurant_list[0]['address'],
                         actions=[
                             URIAction(
@@ -199,7 +199,7 @@ def handle_location_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url=restaurant_list[1]['image'],
-                        title='【%s】' % restaurant_list[1]['name'],
+                        title=restaurant_list[1]['name'],
                         text='地址：%s' % restaurant_list[1]['address'],
                         actions=[
                             URIAction(
@@ -210,7 +210,7 @@ def handle_location_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url=restaurant_list[2]['image'],
-                        title='【%s】' % restaurant_list[2]['name'],
+                        title=restaurant_list[2]['name'],
                         text='地址：%s' % restaurant_list[2]['address'],
                         actions=[
                             URIAction(
@@ -221,7 +221,7 @@ def handle_location_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url=restaurant_list[3]['image'],
-                        title='【%s】' % restaurant_list[3]['name'],
+                        title=restaurant_list[3]['name'],
                         text='地址：%s' % restaurant_list[3]['address'],
                         actions=[
                             URIAction(
@@ -232,7 +232,7 @@ def handle_location_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url=restaurant_list[4]['image'],
-                        title='【%s】' % restaurant_list[4]['name'],
+                        title=restaurant_list[4]['name'],
                         text='地址：%s' % restaurant_list[4]['address'],
                         actions=[
                             URIAction(
