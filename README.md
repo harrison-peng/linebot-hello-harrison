@@ -16,7 +16,7 @@ This is a line bot with following feature:
 
 **QR Code:**
 
-![alt line@](http://qr-official.line.me/L/OPSA4AgWSE.png)
+![line QR Code](http://qr-official.line.me/L/OPSA4AgWSE.png)
 
 #### heroku config vars
 
