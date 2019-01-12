@@ -79,6 +79,10 @@ def handle_message(event):
             res_message = TextSendMessage(text=content)
             line_bot_api.reply_message(event.reply_token, res_message)
         elif message == '觀看作品':
+            content = '哈囉~這是我一部份的小作品，目前僅放上網站的作品，其他類型的作品因為不好呈現所以沒有放上，不過也歡迎到我的 GitHub 去看看哦:D 另外網站由於 RWD 並沒有做到很完整，所以使用電腦觀看會比較佳哦~'
+            res_message = TextSendMessage(text=content)
+            line_bot_api.reply_message(event.reply_token, res_message)
+            
             works_message = TemplateSendMessage(
                 alt_text='Carousel template',
                 template=CarouselTemplate(
