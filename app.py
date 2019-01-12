@@ -177,83 +177,77 @@ def handle_message(event):
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text='這是地址')
-    )
+    try:
+        location = event.message.address
+        restaurant_list = restanrant.find_near_restaurant(location)
+
+        restaurant_message = TemplateSendMessage(
+            alt_text='Carousel template',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url=restaurant_list[0]['image'],
+                        title='【%s】' % restaurant_list[0]['name'],
+                        text='地址：%s' % restaurant_list[0]['address'],
+                        actions=[
+                            URIAction(
+                                label='前往網站',
+                                uri=restaurant_list[0]['url']
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url=restaurant_list[1]['image'],
+                        title='【%s】' % restaurant_list[1]['name'],
+                        text='地址：%s' % restaurant_list[1]['address'],
+                        actions=[
+                            URIAction(
+                                label='前往網站',
+                                uri=restaurant_list[1]['url']
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url=restaurant_list[2]['image'],
+                        title='【%s】' % restaurant_list[2]['name'],
+                        text='地址：%s' % restaurant_list[2]['address'],
+                        actions=[
+                            URIAction(
+                                label='前往網站',
+                                uri=restaurant_list[2]['url']
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url=restaurant_list[3]['image'],
+                        title='【%s】' % restaurant_list[3]['name'],
+                        text='地址：%s' % restaurant_list[3]['address'],
+                        actions=[
+                            URIAction(
+                                label='前往網站',
+                                uri=restaurant_list[3]['url']
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url=restaurant_list[4]['image'],
+                        title='【%s】' % restaurant_list[4]['name'],
+                        text='地址：%s' % restaurant_list[4]['address'],
+                        actions=[
+                            URIAction(
+                                label='前往網站',
+                                uri=restaurant_list[4]['url']
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, restaurant_message)
+    except Exception as e:
+        res_message = TextSendMessage(text=str(e))
+        line_bot_api.reply_message(event.reply_token, res_message)
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-
-
-        # try:
-        #     location = event.message.address
-        #     restaurant_list = restanrant.find_near_restaurant(location)
-
-        #     restaurant_message = TemplateSendMessage(
-        #                 alt_text='Carousel template',
-        #                 template=CarouselTemplate(
-        #                     columns=[
-        #                         CarouselColumn(
-        #                             thumbnail_image_url=restaurant_list[0]['image'],
-        #                             title='【%s】' % restaurant_list[0]['name'],
-        #                             text='地址：%s' % restaurant_list[0]['address'],
-        #                             actions=[
-        #                                 URIAction(
-        #                                     label='前往網站',
-        #                                     uri=restaurant_list[0]['url']
-        #                                 )
-        #                             ]
-        #                         ),
-        #                         CarouselColumn(
-        #                             thumbnail_image_url=restaurant_list[1]['image'],
-        #                             title='【%s】' % restaurant_list[1]['name'],
-        #                             text='地址：%s' % restaurant_list[1]['address'],
-        #                             actions=[
-        #                                 URIAction(
-        #                                     label='前往網站',
-        #                                     uri=restaurant_list[1]['url']
-        #                                 )
-        #                             ]
-        #                         ),
-        #                         CarouselColumn(
-        #                             thumbnail_image_url=restaurant_list[2]['image'],
-        #                             title='【%s】' % restaurant_list[2]['name'],
-        #                             text='地址：%s' % restaurant_list[2]['address'],
-        #                             actions=[
-        #                                 URIAction(
-        #                                     label='前往網站',
-        #                                     uri=restaurant_list[2]['url']
-        #                                 )
-        #                             ]
-        #                         ),
-        #                         CarouselColumn(
-        #                             thumbnail_image_url=restaurant_list[3]['image'],
-        #                             title='【%s】' % restaurant_list[3]['name'],
-        #                             text='地址：%s' % restaurant_list[3]['address'],
-        #                             actions=[
-        #                                 URIAction(
-        #                                     label='前往網站',
-        #                                     uri=restaurant_list[3]['url']
-        #                                 )
-        #                             ]
-        #                         ),
-        #                         CarouselColumn(
-        #                             thumbnail_image_url=restaurant_list[4]['image'],
-        #                             title='【%s】' % restaurant_list[4]['name'],
-        #                             text='地址：%s' % restaurant_list[4]['address'],
-        #                             actions=[
-        #                                 URIAction(
-        #                                     label='前往網站',
-        #                                     uri=restaurant_list[4]['url']
-        #                                 )
-        #                             ]
-        #                         )
-        #                     ]
-        #                 )
-        #             )
-        #             line_bot_api.reply_message(event.reply_token, restaurant_message)
-        # except Exception as e:
-        #     res_message = TextSendMessage(text=str(e))
-        #     line_bot_api.reply_message(event.reply_token, res_message)
