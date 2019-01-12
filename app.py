@@ -3,7 +3,7 @@
 import os
 import teachMode as teach
 import game as game
-import restaurant as restaurant
+# import restaurant as restaurant
 from flask import Flask, request, abort
 
 from linebot import (
