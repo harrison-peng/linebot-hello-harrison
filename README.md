@@ -16,7 +16,7 @@ This is a line bot with following feature:
 
 **QR Code:**
 
-![line QR Code](http://qr-official.line.me/L/OPSA4AgWSE.png)
+![line QR Code](https://i.imgur.com/bviIqPP.png)
 
 #### heroku config vars
 
