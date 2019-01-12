@@ -123,9 +123,9 @@ def handle_message(event):
             confirm_template_message = TemplateSendMessage(
                 alt_text='Buttons template',
                 template=ButtonsTemplate(
-                    thumbnail_image_url='https://compass-ssl.xbox.com/assets/dc/48/dc486960-701e-421b-b145-70d04f3b85be.jpg?n=Game-Hub_Content-Placement-0_New-Releases-No-Copy_740x417_02.jpg',
+                    thumbnail_image_url='https://i.imgur.com/Y1DWfaU.jpg',
                     title='【尋找附近餐廳】',
-                    text='猜一個四位不重複的數字，A表示數字對位置對，B表示數字對位置錯，透過已知的線索，來看看你能多快猜到數字吧！',
+                    text='透過 Yelp 尋找出你附近的推薦餐廳，並且可以透過連結到 Yelp 網站上觀看評論以及更多資訊哦!',
                     actions=[
                         URITemplateAction(
                             label="傳送我現在的位置",
