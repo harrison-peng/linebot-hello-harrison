@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import os
 from yelpapi import YelpAPI
 
 YELP_API_KEY = os.environ['YELP_API_KEY']
@@ -21,5 +22,3 @@ def find_near_restaurant(address):
         return restaurant_list
     except Exception as e:
         return e
-
-# print(len(find_near_restaurant('台北市文山區育英街17巷10號')))
